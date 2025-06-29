@@ -8,4 +8,14 @@ public class Word  implements Comparable<Word> {
 public String getWord() {
   return word;
   }
+
+@override
+public int compareTo(Word other) {
+  return this.word.compareTo(other.word);
+  }
+
+@override
+public String toString() {
+  return word;
+  }
 }
