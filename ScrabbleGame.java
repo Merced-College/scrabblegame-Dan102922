@@ -42,16 +42,25 @@ public class ScrabbleGame {
   }
     System.out.print("Type a word in with the letters you have: ");
     String inputtedword = input.nextLine().toLowerCase();
-    System.out.println();
+    if (!wordfromletters(inputtedword, letters)) {
+      System.out.println("Invalid, use letters you are given.");
+        return;
+    }
+
+    if (binarySearch(inputtedword)) {
+      System.out.println("This word is valid");
+    } else {
+      System.out.println("Invalid dictionary word");
+    }
   }
 
-
-  
   private boolean wordfromletters(String input, char[] letter) {
     Map<Character, Integer> letterCounts = new HashMap<>();
+
     for (char c : letter) {
       letterCounts.put(c, letterCounts.getOrDefault(c, 0) + 1);
     }
+
     for (char c : input.toCharArray()) {
       if (!letterCounts.containsKey(c) || letterCounts.get(c) == 0) {
         return false;
@@ -60,12 +69,35 @@ public class ScrabbleGame {
     }
     return true;
   }
-
-
   
     private boolean binarySearch(String target) {
-      //needs to search using word objects
-      //dont forget reflection
+      int left = 0;
+      int right = wordList.size() - 1;
+
+      Word targetWord = new Word(target);
+
+        while (left <= right) {
+        int mid = (left + right) / 2;
+        Word midWord = wordList.get(mid);
+        int comparison = midWord.compareTo(targetWord);
+        if (comparison == 0) {
+          return true;
+        } else if (comparison < 0) {
+          left = mid + 1;
+        } else {
+          right = mid - 1;
+        }
+      }
+
       return false;
     }
 }
+
+// Things left:
+// Add a new improvement
+// Add more comments
+// Write a reflection
+
+
+
+
