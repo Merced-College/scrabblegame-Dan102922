@@ -11,13 +11,13 @@ public class ScrabbleGame {
       game.run();
     }
 
-  public void loadword(String filename) {
+  public void loadwords(String filename) {
     Scanner sc = new Scanner(new File(filename));
     while (sc.hasNextLine()) {
-      String line = scnextline().trim();
+      String line = sc.nextline().trim();
 
       if (!line.isEmpty()) {
-        Word w = new Word(line):
+        Word w = new Word(line);
           wordList.add(w);
       }
     }
@@ -25,13 +25,25 @@ public class ScrabbleGame {
     Collections.sort(wordList);
   }
 
-  public void play() {
-    /*
-    //generate 4 random letters, show them, get input from user, check if they're using the letters provided, check if word is valid, then give feedback
-    */
+  public void run() {
+
+    Random rand = new Random();
+    char[] letters = new char[4];
+    for (int = 0; i < letters.length; i++) {
+        int r = rand.nextInt(26);
+        letters[I] = (char) ('a' + r);
+    }
+    System.out.print("Your letters: ");
+    for (char c : letters) {
+      System.out.print(c + " ");
+  }
+    System.out.println();
   }
 
+  
   private boolean wordfromletters(String input, char[] letter) {
+
+    
     //needs to check letters
     return false;
   }
