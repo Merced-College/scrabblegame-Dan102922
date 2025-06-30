@@ -11,11 +11,18 @@ public class ScrabbleGame {
       game.run();
     }
 
-  // load words
   public void loadword(String filename) {
-    /*
-    needs to read file, create word objects & add them to word list, then sort it
-    */
+    Scanner sc = new Scanner(new File(filename));
+    while (sc.hasNextLine()) {
+      String line = scnextline().trim();
+
+      if (!line.isEmpty()) {
+        Word w = new Word(line):
+          wordList.add(w);
+      }
+    }
+    sc.close();
+    Collections.sort(wordList);
   }
 
   public void play() {
