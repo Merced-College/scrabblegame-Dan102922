@@ -26,3 +26,7 @@ TODO Turn in: Turn in your 2 files (The Word and ScrabbleGame java files) to the
 TODO: Each student must respond to the reflection question individually, providing a unique answer. This part of the assignment should not be done collaboratively. Submit your reflection as a document either on Canvas or in the GitHub repository.
 
 Reflect on your personal problem-solving process. How did your understanding of object-oriented programming (e.g., classes, constructors, and data structures like ArrayLists) evolve as you worked on this task? What challenges did you encounter and how did you go about fixing them? Explain which LLM, your prompts, or internet help and how debugged your code?
+
+# Reflection
+
+When working on this, I was mostly more familiar with object stuff on c++, and while it didn't seem too different on java, I did have to learn more about java syntax. Using a compiler to test the program also helps to speed up the debugging process for me, this one specifically https://www.online-java.com/. The majority of the errors I encountered were syntax errors as well as getting different functions mixed up.It also allows to add more than one file, which the one I used for c++ didn't support. It also points out which lines specifically there are errors in which are able to more easily spotted and corrected.
