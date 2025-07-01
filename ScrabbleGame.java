@@ -1,3 +1,5 @@
+// 
+
 import java.util.*;
 import java.io.*;
 
@@ -12,6 +14,7 @@ public class ScrabbleGame {
     }
 
   public void loadwords(String filename) {
+    // loads words from file into the wordlist and sorts them
     Scanner sc = new Scanner(new File(filename));
     while (sc.hasNextLine()) {
       String line = sc.nextLine().trim();
@@ -28,8 +31,10 @@ public class ScrabbleGame {
 
   
   public void run() {
+    // This is the meat and potatoes of the whole thing, generating letters, getting user input, checking and scoring them based on how well they did
     Random rand = new Random();
     char[] letters = new char[4];
+    //for loop generates 4 random letters to use
     for (int i = 0; i < letters.length; i++) {
         int r = rand.nextInt(26);
         letters[i] = (char) ('a' + r);
@@ -49,9 +54,21 @@ public class ScrabbleGame {
 
     if (binarySearch(inputtedword)) {
       System.out.println("This word is valid");
+
+      //Added improvement: Scoring system
+      //User gets 1 point for each letter used (like cat, dog, eat)
+      //Bonus 2 points for using all 4
+      //At the end of the round, points earned are displayed
+      int score = 0;
+    score += inputtedword.length();
+    if (inputtedword.length() == 4) {
+      score += 2;
+    }
+    System.out.println("+" + score + " Score");
     } else {
       System.out.println("Invalid dictionary word");
     }
+    
   }
 
   private boolean wordfromletters(String input, char[] letter) {
@@ -92,12 +109,3 @@ public class ScrabbleGame {
       return false;
     }
 }
-
-// Things left:
-// Add a new improvement
-// Add more comments
-// Write a reflection
-
-
-
-
